@@ -9,10 +9,15 @@ public class LivroService {
 
     private LivroRepository repository;
 
+ 
+    
     public LivroService(LivroRepository repository) {
         this.repository = repository;
     }
 
+       public LivroService() {
+    // Construtor vazio para testes de regras simples
+}
     public Livro cadastrarLivro(String titulo, String autor, String editora,
                                 String categoria, int numeroPaginas,
                                 StatusLivro status, String resumo) {
@@ -47,6 +52,16 @@ public class LivroService {
 
     public Livro buscarPorId(int id) {
         return repository.buscarPorId(id);
+    }
+    
+    public boolean statusValido(String status) {
+        if (status == null) {
+            return false;
+        }
+
+        return status.equalsIgnoreCase("LIDO")
+            || status.equalsIgnoreCase("LENDO")
+            || status.equalsIgnoreCase("NAO_LIDO");
     }
 }
 

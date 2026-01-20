@@ -1,4 +1,4 @@
-# 📚 Biblioteca Virtual – Java (Console)
+# 📚 Biblioteca Virtual – Java 
 
 Projeto desenvolvido como parte da etapa final do curso técnico em **Desenvolvimento de Sistemas**, com o objetivo de aplicar boas práticas de programação e os princípios de projeto **SOLID**, em especial o **Princípio da Responsabilidade Única (SRP)**.
 

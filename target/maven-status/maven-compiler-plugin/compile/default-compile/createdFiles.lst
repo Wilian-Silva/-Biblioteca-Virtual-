@@ -1,0 +1,7 @@
+br\com\biblioteca\service\LivroService.class
+br\com\biblioteca\main\Main.class
+br\com\biblioteca\model\Livro.class
+br\com\biblioteca\ui\Menu.class
+br\com\biblioteca\repository\LivroRepository.class
+br\com\biblioteca\biblioteca\console\BibliotecaConsole.class
+br\com\biblioteca\model\StatusLivro.class

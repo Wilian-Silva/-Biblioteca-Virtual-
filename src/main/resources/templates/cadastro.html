@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Livro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="container">
+    <h1 th:text="${livro.id == null ? '📘 Cadastro de Livro' : '✏️ Editar Livro'}"></h1>
+
+    <form th:object="${livro}"
+      th:action="@{/livros/salvar}"
+      method="post">
+
+        <!-- 🔴 ESSENCIAL: ID -->
+        <input type="hidden" th:field="*{id}">
+
+        <div class="campo">
+            <label>Título</label>
+            <input type="text" th:field="*{titulo}" required>
+        </div>
+
+        <div class="grid-2">
+            <div class="campo">
+                <label>Autor</label>
+                <input type="text" th:field="*{autor}" required>
+            </div>
+
+            <div class="campo">
+                <label>Editora</label>
+                <input type="text" th:field="*{editora}" required>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="campo">
+                <label>Categoria</label>
+                <input type="text" th:field="*{categoria}" required>
+            </div>
+
+            <div class="campo">
+                <label>Número de páginas</label>
+                <input type="number" th:field="*{numeroPaginas}" min="1" required>
+            </div>
+        </div>
+
+        <div class="campo">
+            <label>Status do Livro</label>
+            <div class="status-opcoes">
+                <label th:each="status : ${statusList}">
+                    <input type="radio"
+                           th:field="*{status}"
+                           th:value="${status}">
+                    <span th:text="${status}"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="campo">
+            <label>Resumo</label>
+            <textarea th:field="*{resumo}" rows="4" maxlength="300" required></textarea>
+        </div>
+
+        <button type="submit">
+            <span th:text="${livro.id == null ? 'Cadastrar Livro' : 'Salvar Alterações'}"></span>
+        </button>
+
+    </form>
+</div>
+
+</body>
+</html>

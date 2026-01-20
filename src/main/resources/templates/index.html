@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Início')"></head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="home-container">
+    <h1>Bem-vindo à Biblioteca Virtual 📚</h1>
+    <p>Escolha uma opção abaixo para continuar</p>
+
+    <div class="home-cards">
+        <a th:href="@{/livros}" class="home-card">📖 Listar Livros</a>
+        <a th:href="@{/livros/novo}" class="home-card destaque">➕ Cadastrar Livro</a>
+    </div>
+</div>
+
+</body>
+</html>
+

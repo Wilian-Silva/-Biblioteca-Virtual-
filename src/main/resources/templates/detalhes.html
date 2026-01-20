@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes do Livro</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <h1>📖 Detalhes do Livro</h1>
+
+    <div class="detalhes-card">
+
+        <p><strong>ID:</strong> <span th:text="${livro.id}"></span></p>
+        <p><strong>Título:</strong> <span th:text="${livro.titulo}"></span></p>
+        <p><strong>Autor:</strong> <span th:text="${livro.autor}"></span></p>
+        <p><strong>Editora:</strong> <span th:text="${livro.editora}"></span></p>
+        <p><strong>Categoria:</strong> <span th:text="${livro.categoria}"></span></p>
+        <p><strong>Nº de páginas:</strong> <span th:text="${livro.numeroPaginas}"></span></p>
+        <p><strong>Status:</strong> <span th:text="${livro.status}"></span></p>
+
+        <div class="resumo">
+            <strong>Resumo:</strong>
+            <p th:text="${livro.resumo}"></p>
+        </div>
+
+        <a th:href="@{/livros}" class="btn">⬅ Voltar</a>
+    </div>
+</div>
+
+</body>
+</html>

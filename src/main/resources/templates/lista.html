@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Lista de Livros')"></head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    
+    <h1>📚 Lista de Livros</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="livro : ${livros}">
+            <td th:text="${livro.id}"></td>
+            <td th:text="${livro.titulo}"></td>
+            <td th:text="${livro.autor}"></td>
+            <td th:text="${livro.status}"></td>
+            <td>
+                <a th:href="@{/livros/detalhes/{id}(id=${livro.id})}"
+                   class="btn btn-detalhes">
+                    Detalhes
+                </a>
+                <a th:href="@{/livros/editar/{id}(id=${livro.id})}" class="btn btn-edit">Editar</a>
+                <a th:href="@{/livros/excluir/{id}(id=${livro.id})}"
+                   class="btn btn-delete"
+                   onclick="return confirm('Deseja excluir este livro?')">
+                    Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

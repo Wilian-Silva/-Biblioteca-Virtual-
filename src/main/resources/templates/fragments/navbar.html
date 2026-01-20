@@ -1,0 +1,9 @@
+<nav class="navbar" th:fragment="navbar">
+    <div class="nav-logo">📚 Biblioteca</div>
+
+    <ul class="nav-links">
+        <li><a th:href="@{/}">Início</a></li>
+        <li><a th:href="@{/livros}">Listar Livros</a></li>
+        <li><a th:href="@{/livros/novo}" class="btn-nav">Cadastrar</a></li>
+    </ul>
+</nav>
